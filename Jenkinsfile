@@ -1,30 +1,31 @@
 pipeline {
   agent { label 'Jenkins-Agent' }
-  tools {
-    jdk 'Java17'
-    maven 'Maven3'
-  }
+
   stages {
     stage("Cleanup Workspace") {
       steps {
         cleanWs()
       }
     }
+
     stage("Checkout from SCM") {
       steps {
-        git branch: 'main', 
-            credentialsId: 'github', 
+        git branch: 'main',
+            credentialsId: 'github',
             url: 'https://github.com/adarshsingh-1/Color-Switcher-Project'
       }
     }
-    stage("Build Application") {
+
+    stage("Build/Validate") {
       steps {
-        sh "mvn clean package"
+        echo "No build needed for static project. Validating files..."
+        sh "ls -l"
       }
     }
-    stage("Test Application") {
+
+    stage("Deploy") {
       steps {
-        sh "mvn test"
+        echo "Deploy step goes here (e.g., copy files to web server, S3, or Docker image)"
       }
     }
   }
