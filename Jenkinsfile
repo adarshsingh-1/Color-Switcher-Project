@@ -10,22 +10,20 @@ pipeline {
         cleanWs()
       }
     }
-    stage("Checkout from SCM") {
-      steps {
-        git branch: 'main', 
-            credentialsId: 'github', 
-            url: 'https://github.com/adarshsingh-1/Color-Switcher-Project'
-      }
-    }
+    // The "Checkout" stage has been removed because Jenkins handles it automatically
+    
     stage("Build Application") {
       steps {
+        // Run the maven command from the project root
         sh "mvn clean package"
       }
     }
     stage("Test Application") {
       steps {
+        // Run the maven command from the project root
         sh "mvn test"
       }
     }
   }
 }
+
