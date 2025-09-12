@@ -7,20 +7,27 @@ pipeline {
   stages {
     stage("Cleanup Workspace") {
       steps {
+        // 1. Clean the workspace first.
         cleanWs()
       }
     }
-    // The "Checkout" stage has been removed because Jenkins handles it automatically
-    
+    stage("Checkout from SCM") {
+      steps {
+        // 2. Now, check out the code.
+        git branch: 'main', 
+            credentialsId: 'github', 
+            url: 'https://github.com/adarshsingh-1/Color-Switcher-Project'
+      }
+    }
     stage("Build Application") {
       steps {
-        // Run the maven command from the project root
+        // 3. The pom.xml is now present, so this will work.
         sh "mvn clean package"
       }
     }
     stage("Test Application") {
       steps {
-        // Run the maven command from the project root
+        // 4. This will also work.
         sh "mvn test"
       }
     }
