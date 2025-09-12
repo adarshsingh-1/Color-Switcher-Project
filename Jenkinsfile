@@ -19,18 +19,12 @@ pipeline {
     }
     stage("Build Application") {
       steps {
-        // **FIX:** Change directory to where pom.xml is located
-        dir('Color-Switcher-Project') {
-          sh "mvn clean package"
-        }
+        sh "mvn clean package"
       }
     }
     stage("Test Application") {
       steps {
-        // **FIX:** Also change directory here for the test stage
-        dir('Color-Switcher-Project') {
-          sh "mvn test"
-        }
+        sh "mvn test"
       }
     }
   }
