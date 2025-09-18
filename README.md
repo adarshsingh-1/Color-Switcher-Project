@@ -23,9 +23,6 @@ A simple JavaScript project to dynamically change the background color of the we
 
 ## 📸 Preview
 
-![Color Switcher Preview](preview.png)
-
-> *(Add a screenshot of your project and rename it as `preview.png` in the project folder.)*
 
 ## 🛠️ Setup Instructions
 
