@@ -1,6 +1,6 @@
 # Color-Switcher-Project
 
-A simple JavaScript project to dynamically change the background color of the webpage by clicking on color buttons.
+A simple JavaScript project to dynamically change the background color of the webpage by clicking on color button.
 
 ## 🚀 Features
 
